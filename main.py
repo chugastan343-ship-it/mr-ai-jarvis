@@ -4,11 +4,11 @@ MR AI - JARVIS
 Personal AI Assistant inspired by J.A.R.V.I.S.
 """
 
+from core.jarvis import Jarvis
+
 def main():
-    print("JARVIS online.")
-    print("At your service, Sir.")
-    print("Job Hunter Agent standing by...")
-    # TODO: Implement multi-agent system, job search, scheduling, etc.
+    jarvis = Jarvis()
+    jarvis.run()
 
 if __name__ == "__main__":
     main()
