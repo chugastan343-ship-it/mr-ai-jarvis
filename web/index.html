@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MR AI Command Center</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell" id="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">MR AI</div>
+        <div class="brand-sub">COMMAND CENTER</div>
+      </div>
+
+      <div class="operator">
+        <div class="avatar">BF</div>
+        <div>
+          <strong>BOSS FERISI</strong>
+          <span>Chief of Staff</span>
+          <small class="online">● ONLINE</small>
+        </div>
+      </div>
+
+      <nav>
+        <button class="active" data-panel="dashboard"><span>⌂</span> DASHBOARD</button>
+        <button data-panel="jobs"><span>◎</span> JOB HUNTER</button>
+        <button data-panel="agents"><span>⬡</span> AGENTS</button>
+        <button data-panel="tasks"><span>✓</span> TASKS</button>
+        <button data-panel="chat"><span>💬</span> MR AI CHAT</button>
+        <button data-panel="system"><span>⚙</span> SYSTEM</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="modeToggle" class="primary-button">SWITCH MODE</button>
+        <div class="mode-label" id="modeLabel">NORMAL MODE</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-area">
+      <header class="topbar">
+        <div>
+          <h1>MR AI COMMAND CENTER</h1>
+          <div class="eyebrow" id="clock">--:--:--</div>
+        </div>
+        <div class="top-status">
+          <div>
+            <strong id="coreStatus">OPERATIONAL</strong>
+            <span>AI CORE</span>
+          </div>
+          <div class="live-dot">● LIVE</div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- DASHBOARD GRID -->
+        <section class="hero-grid" id="panel-dashboard">
+          <div class="panel">
+            <div class="panel-head">
+              <h2>SYSTEM STATUS</h2>
+              <span class="badge">HOST</span>
+            </div>
+            <div class="metric">
+              <div class="metric-head"><span>CPU</span><strong id="cpu">--%</strong></div>
+              <div class="metric-bar"><span id="cpuBar" style="width:32%"></span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-head"><span>MEMORY</span><strong id="mem">--%</strong></div>
+              <div class="metric-bar"><span id="memBar" style="width:45%"></span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-head"><span>NETWORK</span><strong id="net">--%</strong></div>
+              <div class="metric-bar"><span id="netBar" style="width:68%"></span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-head"><span>STORAGE</span><strong id="storage">--%</strong></div>
+              <div class="metric-bar"><span id="storageBar" style="width:72%"></span></div>
+            </div>
+          </div>
+
+          <div class="panel core-panel">
+            <div class="panel-head">
+              <h2>AI CORE STATUS</h2>
+              <span class="badge" id="aiBadge">ONLINE</span>
+            </div>
+            <div class="core-stage">
+              <div class="core-orb">MR</div>
+            </div>
+            <div class="stat-strip">
+              <div><span>MODEL</span><strong>MR AI</strong></div>
+              <div><span>UPTIME</span><strong id="uptime">--</strong></div>
+              <div><span>STATUS</span><strong class="ok">OPERATIONAL</strong></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h2>MISSION OVERVIEW</h2>
+              <span class="badge">ACTIVE</span>
+            </div>
+            <p class="mission-line">Current Focus: <strong>Remote Job Acquisition</strong></p>
+            <p class="mission-line">Job Hunter Agent standing by. Public feeds only. No auto-apply.</p>
+            <div class="stat-strip">
+              <div><span>TASKS</span><strong id="taskCount">0</strong></div>
+              <div><span>JOBS FOUND</span><strong id="jobsFound">0</strong></div>
+              <div><span>MODE</span><strong id="missionMode">NORMAL</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JOB HUNTER PANEL -->
+        <section class="panel large-panel hidden" id="panel-jobs">
+          <div class="panel-head">
+            <h2>JOB HUNTER AGENT</h2>
+            <span class="badge">LIVE FEEDS</span>
+          </div>
+          <div class="tool-row">
+            <input id="jobQuery" type="text" value="Python developer" placeholder="Search roles..." />
+            <button id="searchJobsBtn" class="primary-button">SCAN JOBS</button>
+          </div>
+          <div id="jobStatus" class="notice">Ready. Public feeds: RemoteOK + Remotive</div>
+          <div id="jobResults" class="job-list"></div>
+        </section>
+
+        <!-- AGENTS PANEL -->
+        <section class="panel large-panel hidden" id="panel-agents">
+          <div class="panel-head">
+            <h2>AGENT FLEET</h2>
+            <span class="badge">REGISTERED</span>
+          </div>
+          <div class="agent-grid" id="agentGrid">
+            <div class="agent-card">
+              <div class="agent-icon">◎</div>
+              <div>
+                <strong>Job Hunter Agent</strong>
+                <span>RemoteOK + Remotive public feeds</span>
+                <small>STATUS: LIVE</small>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-icon">✉</div>
+              <div>
+                <strong>Email Agent</strong>
+                <span>Gmail readonly (awaiting OAuth)</span>
+                <small>STATUS: READY</small>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-icon">⬡</div>
+              <div>
+                <strong>System Builder</strong>
+                <span>Project scaffolding & architecture</span>
+                <small>STATUS: ONLINE</small>
+              </div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-icon">⌘</div>
+              <div>
+                <strong>Core Coordinator</strong>
+                <span>MR AI main brain</span>
+                <small>STATUS: OPERATIONAL</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TASKS PANEL -->
+        <section class="panel large-panel hidden" id="panel-tasks">
+          <div class="panel-head">
+            <h2>TASKS</h2>
+            <span class="badge">TRACKER</span>
+          </div>
+          <div id="taskList" class="notice">No tasks yet. Run a job scan to create review tasks.</div>
+        </section>
+
+        <!-- CHAT PANEL -->
+        <section class="panel large-panel hidden" id="panel-chat">
+          <div class="panel-head">
+            <h2>MR AI CHAT</h2>
+            <span class="badge">LOCAL</span>
+          </div>
+          <div class="chat-box" id="chatBox">
+            <div class="chat-msg assistant">
+              <strong>MR AI</strong>
+              <p>All systems operational. Job Hunter ready. How can I assist you, Boss?</p>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input id="chatInput" type="text" placeholder="Type a message..." />
+            <button id="chatSend" class="primary-button">SEND</button>
+          </div>
+        </section>
+
+        <!-- SYSTEM PANEL -->
+        <section class="panel large-panel hidden" id="panel-system">
+          <div class="panel-head">
+            <h2>SYSTEM</h2>
+            <span class="badge">INFO</span>
+          </div>
+          <p class="mission-line">Backend API: <code id="apiBase">http://localhost:8000</code></p>
+          <p class="mission-line">Job feeds: RemoteOK + Remotive (public only)</p>
+          <p class="mission-line">No automatic applications. No device/radar modules enabled.</p>
+          <button id="refreshStatus" class="primary-button">REFRESH STATUS</button>
+          <pre id="statusDump" class="telemetry-json">Click refresh to load status.</pre>
+        </section>
+
+        <!-- QUICK COMMANDS -->
+        <div class="quick-bar">
+          <button data-cmd="scan">SCAN JOBS</button>
+          <button data-cmd="status">SYSTEM STATUS</button>
+          <button data-cmd="agents">AGENTS</button>
+          <button data-cmd="mode">TOGGLE MODE</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
