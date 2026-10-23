@@ -5,52 +5,66 @@ Built for **MR AI**
 
 ---
 
-### What works right now
+### Live Capabilities (now)
 
-| Component              | Status     | Description                                      |
-|------------------------|------------|--------------------------------------------------|
-| **Job Hunter Agent**   | LIVE       | Searches RemoteOK + Remotive for real remote jobs |
-| **Python Developer**   | Default    | Profile focused on Python / Backend roles         |
-| **Multi-Agent Core**   | Active     | Job Hunter + Email + System Builder structure     |
-| **Email Agent**        | Structure  | Ready for Gmail OAuth integration                 |
-| **System Builder**     | Structure  | Ready for project scaffolding                     |
+| Component            | Status | Description |
+|----------------------|--------|-------------|
+| **Job Hunter Agent** | LIVE   | Real search on RemoteOK + Remotive |
+| **Task Tracker**     | LIVE   | Creates review tasks for found jobs |
+| **FastAPI layer**    | LIVE   | `/jobs/search` and `/status` endpoints |
+| **Email Agent**      | Ready  | Structure for Gmail readonly OAuth |
+| **System Builder**   | Ready  | Project scaffolding plans |
+| **Core Coordinator** | LIVE   | Unifies all agents |
 
 ---
 
-### Quick start
+### Quick Start
 
 ```bash
 pip install -r requirements.txt
 python main.py
 ```
 
-This will run a **live** search for remote Python Developer jobs and print real results from public job feeds.
+This runs a **live** search for remote Python Developer jobs and creates tracking tasks.
 
-No applications are submitted automatically.
+### Run the API
+
+```bash
+uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Then open:
+- http://localhost:8000/
+- http://localhost:8000/jobs/search?query=Python+developer
+- http://localhost:8000/status
 
 ---
 
-### Project structure
+### Project Structure
 
 ```
 mr-ai-jarvis/
-├── main.py                 # Entry point – runs live job search
+├── main.py                 # CLI entry – live job hunt
 ├── requirements.txt
+├── api/
+│   └── main.py             # FastAPI app
 ├── agents/
-│   ├── job_hunter.py       # Real RemoteOK + Remotive integration
+│   ├── job_hunter.py       # Real public job feeds
 │   ├── email_agent.py
 │   └── system_builder.py
 └── core/
-    └── jarvis.py
+    ├── jarvis.py           # MR AI coordinator
+    └── tasks.py            # Simple task tracker
 ```
 
 ---
 
-### Next planned upgrades
-- Gmail readonly integration
-- Task & memory system
-- Simple FastAPI backend
-- Scheduler for automatic job scans
+### Important Notes
+
+- Job search uses **public feeds only** (RemoteOK + Remotive).
+- **No applications are submitted automatically.**
+- Email sending is not enabled.
+- Device / phone / radar features are intentionally excluded.
 
 ---
 
