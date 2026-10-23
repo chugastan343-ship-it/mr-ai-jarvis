@@ -1,0 +1,2 @@
+# MR AI - JARVIS Dependencies
+# Add packages here as the system grows
