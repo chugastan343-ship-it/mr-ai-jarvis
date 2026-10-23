@@ -3,57 +3,79 @@
 **Personal AI Assistant inspired by J.A.R.V.I.S. from Iron Man**  
 Built for **MR AI**
 
+> "At your service, Sir."
+
 ---
 
 ### Vision
-An intelligent, proactive, and loyal personal AI assistant that makes your work life smoother, more organized, and more productive.
+An intelligent, proactive, loyal personal AI that can:
+- Read and manage emails
+- Hunt remote jobs
+- Build and manage systems
+- Schedule tasks
+- Research anything
+- Write documents & code
+- Run multi-agent operations autonomously
 
-### Core Capabilities
-
-1. **Remote Job Management**  
-   - Actively search, track, and organize remote jobs  
-   - Maintain lists of available jobs and applications  
-   - Specialized **Job Hunter Agent**
-
-2. **Multi-Agent System**  
-   - Job Hunter Agent  
-   - Scheduler Agent  
-   - Research Agent  
-   - Writer Agent  
-   - More agents can be added as needed
-
-3. **Task & Schedule Management**  
-   - Plan and manage daily/weekly schedules  
-   - Reminders and deadline tracking
-
-4. **File & Document Handling**  
-   - Organize, summarize, and manage project files
-
-5. **Daily Operations**  
-   - Status reports  
-   - Proactive suggestions  
-   - Multi-step autonomous execution (with confirmation)
-
-### Personality
-- Calm, intelligent, slightly formal but friendly  
-- Addresses the user respectfully (Sir / Boss / MR AI)  
-- Always proactive and loyal
+Make your work life smoother, organized, and more powerful.
 
 ---
 
-### Current Status
-- Repository initialized  
-- Job Hunter Agent profile configured for **Python Developer** (remote)  
-- Ready for further development
+### Core Capabilities (Super Mode)
 
-### Next Steps
-- [ ] Build core agent framework  
-- [ ] Integrate job search tools  
-- [ ] Add scheduling system  
-- [ ] Create simple CLI / interface  
-- [ ] Expand multi-agent capabilities
+| Capability              | Description                                      | Status     |
+|-------------------------|--------------------------------------------------|------------|
+| **Email Intelligence**  | Read, summarize, reply, and organize emails      | Planned    |
+| **Job Hunter Agent**    | Find & track remote Python / tech jobs           | Active     |
+| **System Builder**      | Design and scaffold new systems & projects       | Active     |
+| **Multi-Agent System**  | Specialized agents working together              | Active     |
+| **Scheduler Agent**     | Daily planning, reminders, deadlines             | Planned    |
+| **Research Agent**      | Deep research on any topic                       | Planned    |
+| **Writer Agent**        | Documents, proposals, cover letters, code        | Planned    |
+| **File & Code Manager** | Organize, edit, and generate project files       | Active     |
 
 ---
 
-**"At your service, Sir."**  
-— JARVIS
+### Current Agents
+
+- **Job Hunter Agent** → Python Developer remote jobs
+- **System Builder Agent** → Creates structures, repos, and systems
+- **Core JARVIS** → Coordinates everything
+
+---
+
+### Tech Stack (Target)
+- Python
+- Multi-agent architecture
+- GitHub integration
+- Email (Gmail) integration
+- Web search & tools
+- Future: Voice, calendar, more connectors
+
+---
+
+### Project Structure
+```
+mr-ai-jarvis/
+├── main.py
+├── agents/
+│   ├── job_hunter.py
+│   ├── system_builder.py
+│   ├── email_agent.py
+│   └── __init__.py
+├── core/
+│   ├── jarvis.py
+│   └── config.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+### Status
+**Super Mode initializing...**  
+Repository is live and growing.
+
+---
+
+**MR AI + JARVIS = Unstoppable**
